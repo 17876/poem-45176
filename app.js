@@ -1,10 +1,11 @@
 const express = require("express");
+const dotenv = require("dotenv").config();
 const app = express();
 
 // setting the view engine
 app.set("view engine", "ejs");
 
-const port = APP_PORT;
+const port = process.env.APP_PORT;
 
 app.listen(port);
 app.use(express.static("public"));
