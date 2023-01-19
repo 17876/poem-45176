@@ -1,5 +1,9 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
+
+if (process.env.NODE_ENV === "development") {
+    const dotenv = require("dotenv").config();
+}
+
 const app = express();
 
 // setting the view engine
