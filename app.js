@@ -1,8 +1,6 @@
 const express = require("express");
 
-if (process.env.NODE_ENV === "development") {
-    const dotenv = require("dotenv").config();
-}
+const dotenv = require("dotenv").config();
 
 const app = express();
 
