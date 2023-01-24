@@ -5,9 +5,11 @@ const svg = d3
     .attr("height", "100%")
     .attr("pointer-events", "all");
 
+const width = document.getElementById("graph").offsetWidth;
+const height = document.getElementById("graph").offsetHeight;
+// console.log(width, height);
+
 d3.json("/graph").then(function (graph) {
-    const width = 1000,
-        height = 1000;
     const minCircleRadius = 15;
     const maxCircleRadius = 20;
 
@@ -87,11 +89,19 @@ d3.json("/graph").then(function (graph) {
     node.append("text")
         .text((d) => `${d.name}`)
         .attr("class", "node-text")
-
         .attr("x", (d) => 0.8 * circleScale(d.weight))
         .attr("y", (d) => -0.8 * circleScale(d.weight));
 
     const nodeGroups = svg.selectAll(".node-group");
+
+    // reheating the simulation when rtesizing the window, so it adjusts its position
+    window.addEventListener("resize", function () {
+        let curWidth = document.getElementById("graph").offsetWidth;
+        let curHeight = document.getElementById("graph").offsetHeight;
+        forceCenter.x(curWidth / 2);
+        forceCenter.y(curHeight / 2);
+        simulation.restart();
+    });
 
     function tick() {
         link.attr("x1", (d) => d.source.x)
@@ -128,9 +138,9 @@ d3.json("/graph").then(function (graph) {
     }
 
     // html title attribute
-    node.append("title").text(function (d) {
-        return "Hi!";
-    });
+    // node.append("title").text(function (d) {
+    //     return "Hi!";
+    // });
 
     function clicked(event, d) {
         if (event.defaultPrevented) return; // dragged

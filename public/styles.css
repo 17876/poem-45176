@@ -2,6 +2,28 @@
 
 body {
     font-family: "IBM Plex Mono";
+    margin: 0;
+    height: 100vh;
+}
+
+.flex-container {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#graph {
+    flex: 3 0 0;
+    height: 100%;
+}
+
+#side-right {
+    flex: 1 0 0;
+    font-size: 12px;
+    text-align: justify;
+    max-width: 350px;
+    min-width: 350px;
+    margin-right: 8px;
 }
 
 .node-text {
@@ -14,31 +36,19 @@ body {
     stroke: #222;
     stroke-width: 1.5px;
 }
+
 .node.Audio {
     fill: rgb(8, 123, 0);
 }
+
 .node.Video {
     fill: rgb(212, 0, 124);
 }
+
 .link {
     stroke: #999;
     stroke-opacity: 1;
     stroke-width: 1.5px;
-}
-
-#graph {
-    position: absolute;
-    display: flex;
-    overflow: hidden;
-    height: 100%;
-    width: 80%;
-}
-
-#side-right {
-    float: right;
-    width: 20%;
-    font-size: 12px;
-    text-align: justify;
 }
 
 h1 {
