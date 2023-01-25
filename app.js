@@ -73,9 +73,7 @@ async function loadAura() {
         try {
             let nodes = [];
             const readQuery = "MATCH (n) RETURN n";
-            const readResult = await session.executeRead((tx) =>
-                tx.run(readQuery)
-            );
+            const readResult = await session.executeRead((tx) => tx.run(readQuery));
             readResult.records.forEach((record) => {
                 //console.log(record);
                 nodes.push(record.get("n"));
@@ -93,9 +91,7 @@ async function loadAura() {
         try {
             let rels = [];
             const readQuery = "MATCH (n) - [r] -> (m) RETURN r";
-            const readResult = await session.executeRead((tx) =>
-                tx.run(readQuery)
-            );
+            const readResult = await session.executeRead((tx) => tx.run(readQuery));
             readResult.records.forEach((record) => {
                 //console.log(record.get("r"));
                 rels.push(record.get("r"));

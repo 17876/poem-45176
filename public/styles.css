@@ -4,6 +4,7 @@ body {
     font-family: "IBM Plex Mono";
     margin: 0;
     height: 100vh;
+    background: #f9f7f4;
 }
 
 .flex-container {
@@ -13,17 +14,15 @@ body {
 }
 
 #graph {
-    flex: 3 0 0;
+    flex: 5 0 100px;
     height: 100%;
 }
 
 #side-right {
-    flex: 1 0 0;
+    flex: 1 0 400px;
     font-size: 12px;
     text-align: justify;
-    max-width: 350px;
-    min-width: 350px;
-    margin-right: 8px;
+    padding: 10px;
 }
 
 .node-text {
@@ -59,4 +58,10 @@ h1 {
 
 iframe {
     border: 0;
+}
+
+@media screen and (max-width: 600px) {
+    #graph {
+        height: 70%;
+    }
 }
