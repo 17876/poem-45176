@@ -130,11 +130,7 @@ d3.json("/graph").then(function (graph) {
             event.subject.fy = null;
         }
 
-        return d3
-            .drag()
-            .on("start", dragstarted)
-            .on("drag", dragged)
-            .on("end", dragended);
+        return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
     }
 
     // html title attribute
@@ -144,7 +140,6 @@ d3.json("/graph").then(function (graph) {
 
     function clicked(event, d) {
         if (event.defaultPrevented) return; // dragged
-
         d3.select(this)
             .transition()
             .attr("fill", "black")
@@ -153,6 +148,10 @@ d3.json("/graph").then(function (graph) {
             .attr("r", 10);
         //.attr("fill", d3.schemeCategory10[d.index % 10]);
 
-        window.open(d.href, "_blank");
+        if (event.metaKey) {
+            window.open(d.href, "_blank").focus();
+        } else {
+            window.location.href = d.href;
+        }
     }
 });

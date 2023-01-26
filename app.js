@@ -17,6 +17,12 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
+app.get("/cemetery", (req, res) => {
+    const content =
+        '<iframe src="https://www.youtube.com/embed/5isxyVFdVBU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    res.render("node", { title: "cemetery", contentLink: content });
+});
+
 // getting the graph data
 app.get("/graph", async function (req, res) {
     let graph = await loadAura();
