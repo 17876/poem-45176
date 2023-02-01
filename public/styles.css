@@ -9,24 +9,28 @@ body {
 }
 
 .flex-container {
-    height: 100%;
     display: flex;
     flex-wrap: wrap;
 }
 
+.full-height {
+    height: 100%;
+}
+
 #graph {
-    flex: 5 0 100px;
+    flex: 5 1 100px;
     height: 100%;
 }
 
 #side-right {
-    flex: 1 0 400px;
+    flex: 1 1 400px;
     text-align: justify;
     padding: 0;
 }
 
 #side-right p {
     margin: 0;
+    padding: 10px;
 }
 
 .node-text {
@@ -63,23 +67,16 @@ h1 {
     font-weight: normal;
 }
 
-@media screen and (max-width: 600px) {
-    #graph {
-        height: 70%;
-    }
-}
-
 /* node pages styles */
 .content {
-    flex: 2 0 100px;
-    height: 100%;
+    flex: 5 1 400px;
     background: red;
     text-align: justify;
     padding: 10px;
 }
 
 .discription {
-    flex: 1 0 100px;
+    flex: 1 1 400px;
     background: yellow;
     text-align: justify;
     padding: 10px;
@@ -89,25 +86,7 @@ h1 {
     margin: 0;
 }
 
-/* nav styles */
-
-nav {
-    margin: 0;
-}
-
-nav ul {
-    padding: 0;
-    margin: 8px 0 0 8px;
-}
-
-nav li {
-    list-style-type: none;
-}
-
-nav a {
-    color: black;
-}
-
+/* 16:9 aspect ratio, padding in percents of the width */
 .video-container {
     padding-top: 56.25%;
     position: relative;
@@ -120,4 +99,29 @@ iframe {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+/* nav styles */
+
+nav {
+    margin: 0;
+}
+
+nav ul {
+    padding: 0;
+    margin: 8px;
+}
+
+nav li {
+    list-style-type: none;
+}
+
+nav a {
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    #graph {
+        height: 70%;
+    }
 }
